@@ -152,6 +152,12 @@ modules:
         - libswresample-free  
         - libswscale-free  
 
+    - type: rpm-ostree
+      repos:
+        - keyd.repo
+      install:
+        - keyd
+
     - type: script
       scripts:
         - installrpmfusion.sh
