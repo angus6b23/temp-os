@@ -1,0 +1,11 @@
+[copr:copr.fedorainfracloud.org:meeuw:keyd]
+name=Copr repo for keyd owned by meeuw
+baseurl=https://download.copr.fedorainfracloud.org/results/meeuw/keyd/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/meeuw/keyd/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+
