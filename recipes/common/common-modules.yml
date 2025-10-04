@@ -38,6 +38,9 @@ modules:
 
       # editor
         - neovim
+        - fd-find
+        - ripgrep 
+        - gcc
 
       # input
         - fcitx5
@@ -48,6 +51,8 @@ modules:
         
       # environment
         - fzf
+        - zsh
+        - kdeconnectd
         - tuned-ppd
         - xorg-x11-server-Xwayland
         - headsetcontrol
@@ -69,7 +74,6 @@ modules:
         - gnome-disk-utility
         - ddcutil
         - openssl
-        - vim
         - just
         - alsa-firmware
         - p7zip
@@ -155,8 +159,20 @@ modules:
     - type: rpm-ostree
       repos:
         - keyd.repo
+        - lazygit.repo
       install:
         - keyd
+        - lazygit
+
+    - type: systemd
+      system:
+        enabled:
+          - keyd.service
+    
+    - type: fonts
+      fonts:
+        nerd-fonts:
+          - GeistMono
 
     - type: script
       scripts:
