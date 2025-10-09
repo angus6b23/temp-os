@@ -1,6 +1,6 @@
 lint:
-	#!/bin/sh
+	#!/bin/env sh
 	bluebuild validate recipes/recipe-hyprland.yml
 switch:
-	#!/bin/sh
+	#!/bin/env sh
 	sudo bluebuild switch --tempdir ~/.cache/bluebuild recipes/recipe-hyprland.yml
