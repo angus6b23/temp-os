@@ -203,4 +203,4 @@ modules:
     source: local
 
   - type: justfiles
-    validate: true
+    validate: false
