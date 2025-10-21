@@ -132,6 +132,7 @@ modules:
       - yt-dlp
       - tmux
       - fastfetch
+      - rclone
 
     remove:
       - ibus
@@ -146,6 +147,7 @@ modules:
       - ibus-anthy
       - ibus-anthy-python
       - ibus-hangul
+      - ibus-chewing
 
   - type: script
     scripts:

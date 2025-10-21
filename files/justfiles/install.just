@@ -1,4 +1,5 @@
 [group('install')]
+# install lazyvim
 install-lazyvim:
 	#!/usr/bin/env sh
 	@set -euxo pipefail
@@ -22,5 +23,6 @@ install-lazyvim:
 	rm -rf ~/.config/nvim/.git
 
 [group('install')]
+# trigger default-flatpak installs
 install-flatpaks:
 	bluebuild-flatpak-manager apply all
