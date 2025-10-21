@@ -20,3 +20,6 @@ modules:
           - org.onlyoffice.desktopeditors
           - org.mozilla.Thunderbird
           - it.mijorus.gearlever
+          - org.localsend.localsend_app
+          - net.mullvad.MullvadBrowser
+          - io.github.celluloid_player.Celluloid

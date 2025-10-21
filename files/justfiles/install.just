@@ -23,4 +23,4 @@ install-lazyvim:
 
 [group('install')]
 install-flatpaks:
-	bluebuild-flatpak-manager install all
+	bluebuild-flatpak-manager apply all
