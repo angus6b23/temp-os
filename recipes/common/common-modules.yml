@@ -10,11 +10,6 @@ modules:
       - installsignedkernel.sh
 
   - type: rpm-ostree
-    install:
-      - just
-      - powerstat
-
-  - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-%OS_VERSION%/ublue-os-packages-fedora-%OS_VERSION%.repo
     install:
@@ -30,6 +25,10 @@ modules:
       - ensureautoupdates.sh
       - fixupstreamicdloaderbug.sh
       - addimageinfo.sh
+
+  - type: bling
+    install:
+      - negativo17
 
   - type: rpm-ostree
     install:
@@ -49,6 +48,15 @@ modules:
       - fcitx5-table-extra
       - fcitx5-chinese-addons
       - fcitx5-mozc
+
+      # codecs and ffmpeg 
+      - heif-pixbuf-loader
+      - ffmpeg
+      - ffmpeg-libs
+      - ffmpegthumbnailer
+      - pipewire-libs-extra
+      - libfdk-aac
+      - gstreamer1-plugins-ugly
 
       # environment
       - fzf
@@ -128,6 +136,8 @@ modules:
       - golang
 
       # utilities
+      - just
+      - powerstat
       - btop
       - syncthing
       - yt-dlp
@@ -136,6 +146,7 @@ modules:
       - rclone
 
     remove:
+      # remove ibus
       - ibus
       - ibus-libs
       - ibus-gtk3
@@ -150,20 +161,7 @@ modules:
       - ibus-hangul
       - ibus-chewing
 
-  - type: script
-    scripts:
-      - installproprietarypackages.sh
-
-  - type: rpm-ostree
-    install:
-      - heif-pixbuf-loader
-      - ffmpeg
-      - ffmpeg-libs
-      - ffmpegthumbnailer
-      - pipewire-libs-extra
-      - libfdk-aac
-      - gstreamer1-plugins-ugly
-    remove:
+      # codecs and ffmpeg
       - gstreamer1-plugins-ugly-free
       - fdk-aac-free
       - ffmpeg-free
@@ -176,18 +174,22 @@ modules:
       - libswresample-free
       - libswscale-free
 
+
   - type: rpm-ostree
     repos:
       - keyd.repo
       - lazygit.repo
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
       - keyd
       - lazygit
+      - tailscale
 
   - type: systemd
     system:
       enabled:
         - keyd.service
+        - tailscaled
 
   - type: fonts
     fonts:
@@ -209,10 +211,6 @@ modules:
   - type: gschema-overrides
     include:
       - zz1-wayblue-theming.gschema.override
-
-  - type: script
-    scripts:
-      - addbrewjustimport.sh
 
   - type: wayblue-signing
     source: local
