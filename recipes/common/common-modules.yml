@@ -137,10 +137,13 @@ modules:
       - ibus
       - ibus-libs
       - ibus-gtk3
+      - ibus-qt
+      - ibus-libpinyin
       - ibus-setup
       - ibus-typing-booster
       - ibus-m17n
       - ibus-anthy
+      - ibus-anthy-python
       - ibus-hangul
 
   - type: script
