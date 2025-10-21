@@ -134,10 +134,14 @@ modules:
       - fastfetch
 
     remove:
-      - ibus 
+      - ibus
       - ibus-libs
       - ibus-gtk3
       - ibus-setup
+      - ibus-typing-booster
+      - ibus-m17n
+      - ibus-anthy
+      - ibus-hangul
 
   - type: script
     scripts:
