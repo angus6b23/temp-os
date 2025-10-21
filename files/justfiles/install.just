@@ -23,6 +23,13 @@ install-lazyvim:
 	rm -rf ~/.config/nvim/.git
 
 [group('install')]
+# install waydroid
+install-waydroid:
+  sudo rpm-ostree install waydroid
+  sudo rpm-ostree ex apply-live
+
+
+[group('install')]
 # trigger default-flatpak installs
 install-flatpaks:
 	bluebuild-flatpak-manager apply all

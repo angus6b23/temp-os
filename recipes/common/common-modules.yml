@@ -48,6 +48,7 @@ modules:
       - fcitx5-qt6
       - fcitx5-table-extra
       - fcitx5-chinese-addons
+      - fcitx5-mozc
 
       # environment
       - fzf
