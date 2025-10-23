@@ -48,6 +48,7 @@ modules:
       - fcitx5-table-extra
       - fcitx5-chinese-addons
       - fcitx5-mozc
+      - fcitx5-autostart
 
       # codecs and ffmpeg 
       - heif-pixbuf-loader

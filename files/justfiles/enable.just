@@ -1,4 +1,5 @@
 alias autologin := enable-autologin
+alias syncthing := enable-syncthing
 
 # enable auto login with sddm
 [group('enable')]
@@ -18,3 +19,8 @@ enable-autologin:
     fi
     break;
     done
+
+# enable syncthing service
+[group('enable')]
+enable-syncthing:
+    systemctl --user enable --now syncthing
