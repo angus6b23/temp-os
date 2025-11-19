@@ -17,6 +17,7 @@ modules:
       - hyprpicker
       - hypridle
       - hyprpolkitagent
+      - hyprshot
       - satty
       - swww
 
