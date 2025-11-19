@@ -17,7 +17,7 @@ modules:
       - hyprpicker
       - hypridle
       - hyprpolkitagent
-      - hyprshot
+      - satty
       - swww
 
   - type: files
@@ -34,4 +34,3 @@ modules:
     user:
       enabled:
         - hyprpolkitagent
-
