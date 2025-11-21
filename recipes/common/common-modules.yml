@@ -87,6 +87,7 @@ modules:
       - imv
       - distrobox
       - alacritty
+      - podman-compose
 
       # sound
       - wireplumber
