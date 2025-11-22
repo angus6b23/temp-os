@@ -5,7 +5,6 @@ modules:
       - wlogout
       - wlsunset
       - swaylock
-      - swayidle
 
   - type: rpm-ostree
     repos:

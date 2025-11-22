@@ -59,6 +59,17 @@ install-brew:
         fi
     fi
 
+# Install superfile
+[group('install')]
+install-superfile:
+    bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
+
+# Install nvm
+[group('install')]
+install-nvm:
+    #!/usr/bin/env bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
 # install oh-my-zsh
 [group('install')]
 install-omz:
