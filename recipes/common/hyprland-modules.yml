@@ -30,8 +30,3 @@ modules:
     scripts:
       - removeunprofessionalwallpapers.sh
       - sethyprlandwaybarmodules.sh
-
-  - type: systemd
-    user:
-      enabled:
-        - hyprpolkitagent
