@@ -51,6 +51,7 @@ modules:
       - fcitx5-autostart
 
       # codecs and ffmpeg 
+      - mpv
       - heif-pixbuf-loader
       - ffmpeg
       - ffmpeg-libs
@@ -62,6 +63,8 @@ modules:
       # environment
       - fzf
       - zsh
+      - fish
+      - yt-dlp-fish-completion 
       - kdeconnectd
       - tuned-ppd
       - xorg-x11-server-Xwayland
