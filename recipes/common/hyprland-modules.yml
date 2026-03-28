@@ -11,6 +11,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-43/sdegler-hyprland-fedora-43.repo 
     install:
       - hyprland
+      - hyprpanel
       - xdg-desktop-portal-hyprland
       - hyprlock
       - hyprpicker
