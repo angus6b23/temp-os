@@ -33,7 +33,7 @@ modules:
   - type: rpm-ostree
     install:
       # launcher
-      - rofi-wayland
+      - wofi
 
       # editor
       - neovim

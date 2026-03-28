@@ -1,0 +1,39 @@
+* {
+  font-size: 1rem;
+  border: none;
+  background: none;
+}
+#window {
+  background-color: rgba(46, 52, 64, 0.6);
+  font-family: GeistMono Nerd Font;
+  color: #ECEFF4;
+}
+#outer-box {
+}
+#inner-box {
+}
+#input {
+  font-size: 1.5rem;
+  padding: 10px 5px;
+  border-bottom: 1px solid #4c566a;
+}
+#input:focus {
+  box-shadow: none;
+}
+#entry {
+  padding: 5px;
+}
+#entry:selected {
+	background-color: #8FBCBB;
+  color: #2e3440;
+}
+#entry:selected label {
+  color: #2e3440;
+}
+.entry image {
+  margin-left: 2rem;
+  margin-right: 0.5rem;
+}
+expander .entry image {
+  margin-left: 1rem;
+} 

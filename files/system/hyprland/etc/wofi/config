@@ -1,0 +1,12 @@
+allow_images=true
+matching=contain
+insensitive=true
+parse_search=true
+key_up=Shift-K
+key_down=Shift-J
+key_expand=Shift-L
+close_on_focus_loss=true
+lines=8
+image_size=32
+yoffset=0
+location=2
