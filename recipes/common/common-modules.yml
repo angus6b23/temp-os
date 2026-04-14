@@ -50,7 +50,7 @@ modules:
       - fcitx5-mozc
       - fcitx5-autostart
 
-      # codecs and ffmpeg 
+      # codecs and ffmpeg
       - mpv
       - heif-pixbuf-loader
       - ffmpeg
@@ -64,7 +64,7 @@ modules:
       - fzf
       - zsh
       - fish
-      - yt-dlp-fish-completion 
+      - yt-dlp-fish-completion
       - kdeconnectd
       - tuned-ppd
       - xorg-x11-server-Xwayland
@@ -178,10 +178,9 @@ modules:
       - libswresample-free
       - libswscale-free
 
-
   - type: rpm-ostree
     repos:
-      - keyd.repo
+      - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
       - lazygit.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
