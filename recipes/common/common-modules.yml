@@ -125,7 +125,6 @@ modules:
       - kanshi
 
       # theme and GUI
-      - gnome-themes-extra
       - gnome-icon-theme
       - paper-icon-theme
       - breeze-icon-theme
