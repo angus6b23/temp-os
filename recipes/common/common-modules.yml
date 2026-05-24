@@ -180,10 +180,12 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
       - lazygit.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      - https://copr.fedorainfracloud.org/coprs/crashdummy/Displaylink/repo/fedora-%OS_VERSION%/crashdummy-Displaylink-fedora-%OS_VERSION%.repo
     install:
       - keyd
       - lazygit
       - tailscale
+      - displaylink
 
   - type: systemd
     system:
