@@ -145,6 +145,18 @@ modules:
       - fastfetch
       - rclone
 
+      # codecs and ffmpeg
+      - gstreamer1-plugins-ugly-free
+      - fdk-aac-free
+      - ffmpeg-free
+      - libavcodec-free
+      - libavdevice-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libswresample-free
+      - libswscale-free
+
     remove:
       # remove ibus
       - ibus
@@ -161,18 +173,6 @@ modules:
       - ibus-hangul
       - ibus-chewing
       - python3-ibus
-
-      # codecs and ffmpeg
-      - gstreamer1-plugins-ugly-free
-      - fdk-aac-free
-      - ffmpeg-free
-      - libavcodec-free
-      - libavdevice-free
-      - libavfilter-free
-      - libavformat-free
-      - libavutil-free
-      - libswresample-free
-      - libswscale-free
 
   - type: rpm-ostree
     repos:
