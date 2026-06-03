@@ -1,26 +1,29 @@
 modules:
-  - type: rpm-ostree
-    install:
-      - waybar
-      - wlogout
-      - wlsunset
-      - swaylock
+  - type: script
+    scripts:
+      - enableTerra.sh
 
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/repo/fedora-43/sdegler-hyprland-fedora-43.repo 
+      copr:
+        - sdegler/hyprland
     install:
-      - hyprland
-      - hyprpanel
-      - xdg-desktop-portal-hyprland
-      - hyprlock
-      - hyprpicker
-      - hypridle
-      - hyprpolkitagent
-      - hyprshot
-      - satty
-      - swww
-      - cliphist
+      packages:
+        - waybar
+        - wlogout
+        - wlsunset
+        - swaylock
+        - hyprland
+        - xdg-desktop-portal-hyprland
+        - hyprlock
+        - hyprpicker
+        - hypridle
+        - hyprpolkitagent
+        - hyprshot
+        - satty
+        - swww
+        - cliphist
+        - noctalia-shell
 
   - type: files
     files:

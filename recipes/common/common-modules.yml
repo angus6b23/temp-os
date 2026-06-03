@@ -1,23 +1,29 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
 modules:
   - type: containerfile
     snippets:
-      - COPY --from=ghcr.io/ublue-os/akmods:main-42 /rpms /tmp/rpms
-      - COPY --from=ghcr.io/ublue-os/akmods:main-42 /kernel-rpms /tmp/rpms/kernel
+      - COPY --from=ghcr.io/ublue-os/akmods:main-44 /rpms /tmp/rpms
+      - COPY --from=ghcr.io/ublue-os/akmods:main-44 /kernel-rpms /tmp/rpms/kernel
       - RUN find /tmp/rpms
-      - RUN rpm -q ublue-os-akmods-addons || rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods-addons*.rpm
+      - RUN rpm -q ublue-os-akmods-addons || dnf install -y /tmp/rpms/ublue-os/ublue-os-akmods-addons*.rpm
+
   - type: script
     scripts:
       - installsignedkernel.sh
 
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-%OS_VERSION%/ublue-os-packages-fedora-%OS_VERSION%.repo
+      files:
+        - https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-%OS_VERSION%/ublue-os-packages-fedora-%OS_VERSION%.repo
     install:
-      - ublue-os-udev-rules
-      - ublue-os-update-services
-      - ublue-os-signing
-      - ublue-os-luks
-      - ublue-os-just
+      install-weak-deps: false
+      packages:
+        - ublue-os-udev-rules
+        - ublue-os-update-services
+        - ublue-os-signing
+        - ublue-os-luks
+        - ublue-os-just
 
   - type: script
     scripts:
@@ -30,160 +36,151 @@ modules:
     install:
       - negativo17
 
-  - type: rpm-ostree
-    install:
-      # launcher
-      - wofi
-
-      # editor
-      - neovim
-      - fd-find
-      - ripgrep
-      - gcc
-
-      # input
-      - fcitx5
-      - fcitx5-gtk4
-      - fcitx5-qt6
-      - fcitx5-table-extra
-      - fcitx5-chinese-addons
-      - fcitx5-mozc
-      - fcitx5-autostart
-
-      # codecs and ffmpeg
-      - mpv
-      - heif-pixbuf-loader
-      - ffmpeg
-      - ffmpeg-libs
-      - ffmpegthumbnailer
-      - pipewire-libs-extra
-      - libfdk-aac
-      - gstreamer1-plugins-ugly
-
-      # environment
-      - fzf
-      - zsh
-      - fish
-      - yt-dlp-fish-completion
-      - kdeconnectd
-      - tuned-ppd
-      - xorg-x11-server-Xwayland
-      - headsetcontrol
-      - mediainfo
-      - polkit
-      - fprintd-pam
-      - xdg-user-dirs
-      - dbus-tools
-      - dbus-daemon
-      - wl-clipboard
-      - pavucontrol
-      - playerctl
-      - qt5-qtwayland
-      - qt6-qtwayland
-      - vulkan-validation-layers
-      - vulkan-tools
-      - google-noto-emoji-fonts
-      - ddcutil
-      - openssl
-      - just
-      - alsa-firmware
-      - imv
-      - distrobox
-      - alacritty
-      - podman-compose
-
-      # sound
-      - wireplumber
-      - pipewire
-      - pamixer
-      - pulseaudio-utils
-
-      # networking
-      - network-manager-applet
-      - NetworkManager-openvpn
-      - NetworkManager-openvpn-gnome
-      - NetworkManager-openconnect
-      - NetworkManager-openconnect-gnome
-      - bluez
-      - bluez-tools
-      - blueman
-      - firewall-config
-
-      # file manager
-      - dolphin
-      - ark
-      - android-tools
-
-      # screenshot
-      - slurp
-      - grim
-
-      # display
-      - wlr-randr
-      - wlsunset
-      - brightnessctl
-      - kanshi
-
-      # theme and GUI
-      - gnome-icon-theme
-      - paper-icon-theme
-      - breeze-icon-theme
-      - papirus-icon-theme
-
-      # software developing
-      - nodejs24
-      - rustup
-      - golang
-
-      # utilities
-      - just
-      - powerstat
-      - btop
-      - syncthing
-      - yt-dlp
-      - tmux
-      - fastfetch
-      - rclone
-
-      # codecs and ffmpeg
-      # - gstreamer1-plugins-ugly-free
-      # - fdk-aac-free
-      # - ffmpeg-free
-      # - libavcodec-free
-      # - libavdevice-free
-      # - libavfilter-free
-      # - libavformat-free
-      # - libavutil-free
-      # - libswresample-free
-      # - libswscale-free
-
+  - type: dnf
     remove:
-      # remove ibus
-      - ibus
-      - ibus-libs
-      - ibus-gtk3
-      - ibus-gtk4
-      - ibus-qt
-      - ibus-libpinyin
-      - ibus-setup
-      - ibus-typing-booster
-      - ibus-m17n
-      - ibus-anthy
-      - ibus-anthy-python
-      - ibus-hangul
-      - ibus-chewing
-      - python3-ibus
+      packages:
+        # remove ibus
+        - ibus
+        - ibus-libs
+        - ibus-gtk3
+        - ibus-gtk4
+        - ibus-qt
+        - ibus-libpinyin
+        - ibus-setup
+        - ibus-typing-booster
+        - ibus-m17n
+        - ibus-anthy
+        - ibus-anthy-python
+        - ibus-hangul
+        - ibus-chewing
+        - python3-ibus
 
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
-      - lazygit.repo
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
-      - keyd
-      - lazygit
-      - tailscale
-      - displaylink
+      install-weak-deps: false
+      packages:
+        # launcher
+        - wofi
+
+        # editor
+        - neovim
+        - fd-find
+        - ripgrep
+        - gcc
+
+        # input
+        - fcitx5
+        - fcitx5-gtk4
+        - fcitx5-qt6
+        - fcitx5-table-extra
+        - fcitx5-chinese-addons
+        - fcitx5-mozc
+        - fcitx5-autostart
+
+        # codecs and ffmpeg
+        - mpv
+        - heif-pixbuf-loader
+        - ffmpeg-free
+        - ffmpegthumbnailer
+        - pipewire-libs-extra
+        # - libfdk-aac
+
+        # environment
+        - fzf
+        - zsh
+        - fish
+        - yt-dlp-fish-completion
+        - kdeconnectd
+        - tuned-ppd
+        - xorg-x11-server-Xwayland
+        - headsetcontrol
+        - mediainfo
+        - polkit
+        - fprintd-pam
+        - xdg-user-dirs
+        - dbus-tools
+        - dbus-daemon
+        - wl-clipboard
+        - pavucontrol
+        - playerctl
+        - qt5-qtwayland
+        - qt6-qtwayland
+        - vulkan-validation-layers
+        - vulkan-tools
+        - google-noto-emoji-fonts
+        - ddcutil
+        - openssl
+        - just
+        - alsa-firmware
+        - imv
+        - distrobox
+        - alacritty
+        - podman-compose
+
+        # sound
+        - wireplumber
+        - pipewire
+        - pamixer
+        - pulseaudio-utils
+
+        # networking
+        - network-manager-applet
+        - NetworkManager-openvpn
+        - NetworkManager-openvpn-gnome
+        - NetworkManager-openconnect
+        - NetworkManager-openconnect-gnome
+        - bluez
+        - bluez-tools
+        - blueman
+        - firewall-config
+
+        # file manager
+        - dolphin
+        - ark
+        - android-tools
+
+        # screenshot
+        - slurp
+        - grim
+
+        # display
+        - wlr-randr
+        - wlsunset
+        - brightnessctl
+        - kanshi
+
+        # theme and GUI
+        - gnome-icon-theme
+        - paper-icon-theme
+        - breeze-icon-theme
+        - papirus-icon-theme
+
+        # software developing
+        - nodejs24
+        - rustup
+        - golang
+
+        # utilities
+        - just
+        - powerstat
+        - btop
+        - syncthing
+        - yt-dlp
+        - tmux
+        - fastfetch
+        - rclone
+
+  - type: dnf
+    repos:
+      copr:
+        - alternateved/keyd
+        - dejan/lazygit
+      files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+    install:
+      packages:
+        - keyd
+        - lazygit
+        - tailscale
 
   - type: systemd
     system:
