@@ -168,6 +168,8 @@ modules:
         - tmux
         - fastfetch
         - rclone
+        - fuse
+        - fuse-libs
 
   - type: dnf
     repos:
