@@ -5,7 +5,7 @@ modules:
         repo:
           # you can override the title to make inclusion of both system and user repos clearer
           title: Flathub (user)
-      - notify: true
+      - notify: false
         scope: system
         repo:
           title: Flathub (system)
@@ -21,5 +21,4 @@ modules:
           - org.mozilla.Thunderbird
           - it.mijorus.gearlever
           - org.localsend.localsend_app
-          - net.mullvad.MullvadBrowser
           - io.github.celluloid_player.Celluloid
