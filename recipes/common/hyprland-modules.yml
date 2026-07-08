@@ -15,6 +15,7 @@ modules:
         - swaylock
         - hyprland
         - xdg-desktop-portal-hyprland
+        - xdg-desktop-portal-gtk
         - hyprlock
         - hyprpicker
         - hypridle
